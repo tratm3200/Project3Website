@@ -1,0 +1,48 @@
+let coordinate = 0; // the coordinate of the first square is (0, 0)
+
+function preload() {
+	doge = loadImage("doge.jpg");
+}
+
+function setup() {
+	createCanvas(windowWidth, windowHeight);
+	background(random(256));
+	ellipse(windowWidth / 2, windowHeight / 2, 40, 40);
+	fill(0, 0, 51); // navy blue colour
+	stroke(255, 102, 255); // light pink
+	strokeWeight(5);
+	imageMode(RIGHT, BOTTOM);
+	image(doge, 0, 0, doge.width, doge.height); // the top-left corner of the image will be (0, 0)
+	while (coordinate < 600) { // the next two lines will keep repeating as long as coordinate < 600
+		rect(coordinate, coordinate, 50, 50);
+		coordinate += 50
+	}
+}
+
+function draw() {
+	if (text("Maria", 0, windowHeight))
+		textAlign(LEFT, 0);
+	else(rectMode(CENTER))
+	ellipseMode(CENTER);
+	rectMode(CENTER);
+	strokeWeight(15);
+	stroke(36, 65, 179); // yellow-ish colour
+	rect(mouseX, mouseY, 50, 50);
+	fill(217, 252, 43); // somewhat of a hot pink colour
+	stroke(0, 255, 0);
+	strokeWeight(2);
+	ellipse(mouseX, mouseY, 20, 20);
+	fill(256, 0, 0);
+
+	if (mouseIsPressed) {
+		ellipse(mouseX, mouseY, 100, 100);
+	} else if (keyIsPressed) {
+		ellipse(mouseX, mouseY, 20, 20);
+	}
+	if (keyIsPressed) {
+		background(int(random(256)), int(random(256)), int(random(256)));
+	} else if (keyIsPressed) {
+		imageMode(RIGHT, BOTTOM);
+		image(doge, windowWidth / 22, windowHeight / 22, doge.width, doge.height);
+	}
+}
